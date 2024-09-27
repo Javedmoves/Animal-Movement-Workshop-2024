@@ -46,6 +46,7 @@ tdrX <- createTDR(time=TDR1_data$Time,
 
 plotTDR(tdrX) ## Assess ZOC required for each ID
 
+## Takes 5 minutes to run
 dcalib <- calibrateDepth(tdrX,
                          zoc.method="offset",
                          offset= 0.5
@@ -53,9 +54,9 @@ dcalib <- calibrateDepth(tdrX,
 
 # write_rds(dcalib, "dcalib.rds")
 
-dcalib <- read_rds("dcalib.rds")
+# dcalib <- read_rds("dcalib.rds")
 
-plotTDR(dcalib)
+# plotTDR(dcalib)
 
 plotTDR(dcalib, diveNo=100:102) ##Subset to assess performance
 
