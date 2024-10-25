@@ -24,7 +24,6 @@ library(ggpubr)
 library(ggOceanMaps)
 library(ggspatial)
 library(data.table)
-library(ggpubr)
 
 
 setwd("//saeri-file/users$/jriaz/Documents/Github/GPS-Dive integration/")
