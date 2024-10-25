@@ -80,6 +80,66 @@ Animation_Plot <- Basemap +
 gganimate::animate(Animation_Plot, duration = 20, fps = 10, height = 4.5, width = 7, units = "in", res = 300, renderer = av_renderer("Animation_plot.mp4"))
  
 
+# End of script
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+###################################################################################################################################
+
+
+## Bonus code to animate multi-year tracks by month according to one annual cycle (refer to "Fur seal tracking animation.mp4" 
+
+#AniamtionData <- SAFSData_SEA %>%
+# group_by(id) %>%
+#  #arrange(id, date) %>%
+#  mutate(sequential_column = row_number()) %>%
+#  mutate(date1 = update(date, year = 2023)) %>%
+#  mutate(date2 = ShortDate) %>%
+#  mutate(date2 = update(date2, year = 2023))
+  
+# Y1 <- AniamtionData %>%
+# filter(date2 > "2023-07-11") %>%
+#  mutate(date2 = update(date2, year = 2022))
+# Y2 <- AniamtionData %>%
+#  filter(date2 <= "2023-07-11")
+
+# AniamtionData <- Y1 %>%
+ # full_join(Y2)
+
+# Animation_Age_CLASS_DATE <- ggplot() + 
+#  geom_sf(data = cropped_sf, aes(fill = geoname)) +
+#  scale_fill_manual(values = c("#6489C6", "#9E6054", "#FEFEB2")) +
+#  geom_sf(data = Mappping, aes(fill = geoname), fill = "grey6", colour = "black") +
+#  coord_sf(xlim = c(-70,-31), ylim = c(-38,-55.5), expand = FALSE) +
+#  geom_point(data = AniamtionData, aes(x = lon, y= lat, colour = Group, group = id), size = 1) +
+#  scale_colour_viridis_d(option = "H", guide = guide_legend(direction = "horizontal")) + 
+#  labs(colour = "Fur seal tracking data", y = "Longitude", x = "Latitude", fill = "Jurisdiction",   
+#         title = "{format(frame_time, '%d %B')}") + 
+#  theme_bw(10) + 
+#  theme(strip.background = element_rect(fill="gray85"),
+#        panel.grid.major = element_blank(), 
+#        panel.grid.minor = element_blank(),  
+#        panel.border = element_rect(colour = "black")) +
+#  theme(legend.position = "right") +
+#  theme(legend.justification = c(0.95,0.1),
+#        legend.position = c(0.9,0.55),
+#        legend.background = element_rect(fill = "lightgrey", colour = "black"),
+#        legend.key = element_rect(fill = "lightgrey"))  +
+#  theme(plot.title=element_text(colour = "red", margin=margin(t=10,b=-15))) +
+#  guides(colour = guide_legend(title.position = "top", 
+#                               direction = "horizontal",
+#                               override.aes = list(size = 5))) +
+#  gganimate::transition_time(date2) + 
+#   shadow_wake(wake_length = 0.01,
+#               alpha = 0.5)
+
+# gganimate::animate(Animation_Age_CLASS_DATE, duration = 90, fps = 10, height = 4.3, width = 6.3, units = "in", res = 300, renderer = av_renderer("Fur seal tracking animation.mp4"))
 
 
 
