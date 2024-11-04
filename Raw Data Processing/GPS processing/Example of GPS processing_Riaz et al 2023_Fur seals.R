@@ -88,6 +88,18 @@ Basemap
 
 Basemap + ggspatial::geom_spatial_point(data=BirdGPSData, aes(x=lon,y=lat,color=depID))
 
+# Code to check time steps between location fixes
+                                
+Check <- BirdGPSData %>%
+  mutate(Time_gaps = difftime(date, lag(date), units = "mins")) %>%
+  filter(Time_gaps < 100)
+
+ggplot() + geom_histogram(data = Check, aes(x = Time_gaps), colour = "black") +
+  theme_bw() + facet_wrap(~ id)
+
+Check$mins <- as.numeric(Check$Time_gaps)
+
+mean(Check$mins)
 
 ##############################################################################################################################################
 ##############################################################################################################################################
