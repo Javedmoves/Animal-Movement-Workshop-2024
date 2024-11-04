@@ -72,6 +72,18 @@ names(Males2023_BI_locs) <- c("id","date","lc","lon","lat", "smaj", "smin", "eor
 
 unique(Males2023_BI_locs$id) ## 19
 
+# Code to calculate intervals between fixes
+
+Check <- BirdGPSData %>%
+  mutate(Time_gaps = difftime(date, lag(date), units = "mins")) %>%
+  filter(Time_gaps < 100)
+
+ggplot() + geom_histogram(data = Check, aes(x = Time_gaps), colour = "black") +
+  theme_bw() + facet_wrap(~ id)
+
+Check$mins <- as.numeric(Check$Time_gaps)
+
+mean(Check$mins)
 
 ##############################################################################################################################################
 ## Arrange DF by date and change any Z class locations to B class? Kept as Z class for now
