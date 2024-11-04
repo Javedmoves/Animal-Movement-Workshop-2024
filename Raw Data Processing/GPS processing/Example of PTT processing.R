@@ -74,7 +74,7 @@ unique(Males2023_BI_locs$id) ## 19
 
 # Code to calculate intervals between fixes
 
-Check <- BirdGPSData %>%
+Check <- Males2023_BI_locs %>%
   mutate(Time_gaps = difftime(date, lag(date), units = "mins")) %>%
   filter(Time_gaps < 100)
 
